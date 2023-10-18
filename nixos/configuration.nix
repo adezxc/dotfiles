@@ -69,7 +69,7 @@
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
     ];
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "multimedia"];
     shell = pkgs.zsh;
     home = "/home/adam";
   };

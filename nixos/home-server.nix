@@ -1,22 +1,44 @@
 # Home media server config
+{ config, lib, pkgs, options, ... }:
 {
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;
-  };
+  users.groups.multimedia = { };
+  systemd.tmpfiles.rules = [ 
+    "d /data 0770 - multimedia - -"
+  ];
+  services = {
+    jellyfin = {
+      enable = true;
+      group = "multimedia";
+      openFirewall = true;
+    };
 
-  services.radarr = {
-    enable = true;
-    openFirewall = false;
-  };
+    radarr = {
+      enable = true;
+      group = "multimedia";
+      openFirewall = false;
+    };
 
-  services.sonarr = {
-    enable = true;
-    openFirewall = false;
-  };
+    sonarr = {
+      enable = true;
+      group = "multimedia";
+      openFirewall = false;
+    };
 
-  services.jackett = {
-    enable = true;
-    openFirewall = false;
+    jackett = {
+      enable = true;
+      group = "multimedia";
+      openFirewall = false;
+    };
+
+    transmission = {
+      enable = true;
+      group = "multimedia";
+      openFirewall = false;
+      settings = {
+        download-dir = "/data/Torrents";
+        incomplete-dir = "/data/Torrents-incomplete";
+      };
+    };
+
   };
 }

@@ -7,4 +7,10 @@
   firefox
 
   fuzzel
+
+  jellyfin
+  jellyseerr
+  jackett
+  sonarr
+  radarr
 ]

@@ -12,6 +12,7 @@
     ../default.nix
       ./hardware-configuration.nix
       ./sound.nix
+      ./home-server.nix
   ];
 
   nixpkgs = {

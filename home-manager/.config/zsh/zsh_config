@@ -1,0 +1,13 @@
+PATH="$HOME/go/bin:$PATH"
+PATH="/opt/homebrew/bin:$PATH"
+PATH="$HOME/bin:$PATH"
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+dotfiles=$HOME/repos/dotfiles
+alias tokens="cd $dotfiles && git-crypt unlock && source ./secrets/work/TOKENS.env && source ./secrets/work/jira"
+alias vcdreset='(cd $(git root) && make install) && rm -r .terraform* && terraform init'
+alias synccassini="rsync -r --progress --exclude 'ovas' --exclude '*.log' --exclude '*/.git/*' --delete . ubuntu@10.89.131.41:~/vmware-repos"
+
+

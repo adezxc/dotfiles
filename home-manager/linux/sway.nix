@@ -140,6 +140,13 @@
     };
   };
 
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      image = "../../dist/257871.jpg";
+    };
+  };
+
   programs.i3status-rust = {
     enable = true;
     bars = {

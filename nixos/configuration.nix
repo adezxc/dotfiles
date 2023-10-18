@@ -73,6 +73,13 @@
     home = "/home/adam";
   };
 
+environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty? ]] && sudo /run/current-system/sw/bin/swaylock 
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
+
+security.pam.services.swaylock = {};
+
 networking.networkmanager.enable = true;
 programs.gnupg.agent = {
   enable = true;

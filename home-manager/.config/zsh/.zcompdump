@@ -1906,15 +1906,15 @@ autoload -Uz _alacritty _home-manager _nix-build _nix-channel _nix-collect-garba
             _nix-instantiate _nixops _nixos-build-vms _nixos-container _nixos-generate-config \
             _nixos-install _nixos-option _nixos-rebuild _nixos-version _nix-prefetch-url \
             _nix-push _nix-shell _nix-store _starship _sway \
-            _swaymsg _alacritty _bat _bootctl _busctl \
-            _coredumpctl _fuzzel _hostnamectl _journalctl _localectl \
-            _loginctl _machinectl _networkctl _nix _nix-build \
-            _nix-channel _nix-collect-garbage _nix-common-options _nix-copy-closure _nix-env \
-            _nix-hash _nix-install-package _nix-instantiate _nixops _nixos-build-vms \
-            _nixos-container _nixos-generate-config _nixos-install _nixos-option _nixos-rebuild \
-            _nixos-version _nix-prefetch-url _nix-push _nix-shell _nix-store \
-            _oomctl _resolvectl _rg _sd_hosts_or_user_at_host _sd_machines \
-            _sd_outputmodes _sd_unit_files _starship _swaylock _systemctl \
+            _swaylock _swaymsg _alacritty _bat _bootctl \
+            _busctl _coredumpctl _fuzzel _hostnamectl _journalctl \
+            _localectl _loginctl _machinectl _networkctl _nix \
+            _nix-build _nix-channel _nix-collect-garbage _nix-common-options _nix-copy-closure \
+            _nix-env _nix-hash _nix-install-package _nix-instantiate _nixops \
+            _nixos-build-vms _nixos-container _nixos-generate-config _nixos-install _nixos-option \
+            _nixos-rebuild _nixos-version _nix-prefetch-url _nix-push _nix-shell \
+            _nix-store _oomctl _resolvectl _rg _sd_hosts_or_user_at_host \
+            _sd_machines _sd_outputmodes _sd_unit_files _starship _systemctl \
             _systemd _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn \
             _systemd-path _systemd-run _systemd-tmpfiles _timedatectl _udevadm \
             _wpctl _zoxide _cdr _floppy _logical_volumes \

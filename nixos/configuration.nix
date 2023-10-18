@@ -11,6 +11,7 @@
   imports = [
     ../default.nix
       ./hardware-configuration.nix
+      ./sound.nix
   ];
 
   nixpkgs = {
@@ -71,7 +72,7 @@
     shell = pkgs.zsh;
     home = "/home/adam";
   };
-};
+
 networking.networkmanager.enable = true;
 programs.gnupg.agent = {
   enable = true;

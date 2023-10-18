@@ -5,4 +5,6 @@
   subversion
   winetricks
   firefox
+
+  fuzzel
 ]

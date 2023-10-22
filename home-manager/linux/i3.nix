@@ -1,11 +1,13 @@
 { config, pkgs, lib, ... }:
 
 {
-  wayland.windowManager.sway = {
+  xsession.enable = true;
+  xsession.windowManager.i3 = {
+    package = pkgs.i3-gaps;
     enable = true;
     config = {
       modifier = "Mod4";
-      menu = "fuzzel";
+      menu = "rofi -show drun -show-icons";
       terminal = "alacritty";
       startup = [
         { command = "discord"; }
@@ -16,23 +18,6 @@
       	left = 5;
       	right = 5;
       	top = 5;
-      };
-      input = {
-        "type:keyboard" = {
-          xkb_layout = "us,lt,pl,ua";
-      	  xkb_variant = ",,,phonetic";
-          xkb_options = "grp:ctrls_toggle";
-	      };
-       	"type:mouse" = {
-      	  accel_profile = "flat";
-      	};
-      };
-      output = {
-        "DP-1" = {
-      	  adaptive_sync = "on";
-      	  mode = "2560x1440@165.080Hz";
-      	  pos = "0 0";
-      	};
       };
       bars = [
       {
@@ -57,29 +42,19 @@
         ) (lib.lists.range 1 10);
       keybindings =
       let
-      inherit (config.wayland.windowManager.sway.config)
-         terminal menu left down up right;
-      mod = config.wayland.windowManager.sway.config.modifier;
+      inherit (config.xsession.windowManager.i3.config)
+         terminal menu;
+      mod = config.xsession.windowManager.i3.config.modifier;
       in
       {
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Shift+q" = "kill";
         "${mod}+d" = "exec ${menu}";
 
-        "${mod}+${left}" = "focus left";
-        "${mod}+${down}" = "focus down";
-        "${mod}+${up}" = "focus up";
-        "${mod}+${right}" = "focus right";
-
         "${mod}+Left" = "focus left";
         "${mod}+Down" = "focus down";
         "${mod}+Up" = "focus up";
         "${mod}+Right" = "focus right";
-
-        "${mod}+Shift+${left}" = "move left";
-        "${mod}+Shift+${down}" = "move down";
-        "${mod}+Shift+${up}" = "move up";
-        "${mod}+Shift+${right}" = "move right";
 
         "${mod}+Shift+Left" = "move left";
         "${mod}+Shift+Down" = "move down";
@@ -139,14 +114,6 @@
       };
     };
   };
-
-  programs.swaylock = {
-    enable = true;
-    settings = {
-      image = "../../dist/257871.jpg";
-    };
-  };
-
   programs.i3status-rust = {
     enable = true;
     bars = {

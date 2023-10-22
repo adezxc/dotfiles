@@ -13,7 +13,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ./linux/sway.nix
+    ./linux/i3.nix
   ];
 
   nixpkgs = {

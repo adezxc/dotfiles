@@ -25,7 +25,6 @@
   python3
   go
   go-tools
-  terraform
   zig
 
   # University

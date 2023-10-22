@@ -5,7 +5,7 @@
   winetricks
   firefox
 
-  fuzzel
+  rofi
 
   jellyfin
   jellyseerr

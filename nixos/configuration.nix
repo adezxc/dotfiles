@@ -81,6 +81,23 @@ programs.gnupg.agent = {
   enable = true;
 };
 
+services.xserver = {
+  enable = true;
+  layout = "us";
+  displayManager = {
+    lightdm = {
+      enable = true;
+      greeter.enable = true;
+      autoLogin = {
+        enable=  true;
+        user = "adam";
+      };
+    };
+  };
+  windowManager.i3.enable = true;
+};
+
+
 time.timeZone = "Europe/Vilnius";
 
 # Select internationalisation properties.

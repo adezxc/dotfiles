@@ -40,5 +40,18 @@
       };
     };
 
+    bazarr = {
+      enable = true;
+      group = "multimedia";
+      openFirewall = false;
+    };
+
+    deluge = {
+      enable = true;
+      group = "multimedia";
+      openFirewall = false;
+      web.enable = true;
+    };
+
   };
 }

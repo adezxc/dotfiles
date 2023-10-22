@@ -13,7 +13,7 @@
   unzip
 
   # Social
-  discord
+  betterdiscordctl
 
   # Other
   spotify

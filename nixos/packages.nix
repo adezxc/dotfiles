@@ -1,6 +1,5 @@
 {pkgs, ...}: with pkgs; [
   steam
-  xclip
   pavucontrol
   subversion
   winetricks
@@ -13,4 +12,8 @@
   jackett
   sonarr
   radarr
+
+  grim
+  slurp
+  wl-clipboard
 ]

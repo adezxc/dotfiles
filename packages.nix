@@ -11,6 +11,7 @@
   git
   wget
   unzip
+  lf
 
   # Social
   betterdiscordctl
@@ -20,6 +21,7 @@
   obsidian
   tailscale
   anki-bin
+  telegram-desktop
 
   # Development
   python3

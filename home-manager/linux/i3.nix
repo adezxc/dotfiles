@@ -31,14 +31,15 @@
       	};
       }
       ];
+      workspaceLayout = "stacking";
       workspaceAutoBackAndForth = true;
       defaultWorkspace = "workspace number 1";
       workspaceOutputAssign =
       map (i:
           if i - (i / 2 * 2) == 0 then
-            { output = "DP-1"; workspace = toString i; }
-          else
             { output = "DP-2"; workspace = toString i; }
+          else
+            { output = "DP-1"; workspace = toString i; }
         ) (lib.lists.range 1 10);
       keybindings =
       let
@@ -87,6 +88,7 @@
         "${mod}+Shift+0" = "move container to workspace number 10";
 
         "${mod}+v" = "split v";
+        "${mod}+h" = "split h";
         "${mod}+f" = "fullscreen toggle";
         "${mod}+comma" = "layout stacking";
         "${mod}+period" = "layout tabbed";

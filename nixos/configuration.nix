@@ -76,7 +76,6 @@
 
 security.pam.services.swaylock = {};
 
-networking.networkmanager.enable = true;
 programs.gnupg.agent = {
   enable = true;
 };

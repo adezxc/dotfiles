@@ -4,6 +4,7 @@
   subversion
   winetricks
   firefox
+  xfce.thunar
 
   rofi
 
@@ -16,4 +17,5 @@
   grim
   slurp
   wl-clipboard
+  discord
 ]

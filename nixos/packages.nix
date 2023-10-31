@@ -5,6 +5,7 @@
   winetricks
   firefox
   xfce.thunar
+  xclip
 
   rofi
 

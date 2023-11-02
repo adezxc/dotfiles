@@ -14,14 +14,12 @@
   lf
 
   # Social
-  betterdiscordctl
 
   # Other
   spotify
   obsidian
   tailscale
   anki-bin
-  telegram-desktop
 
   # Development
   python3

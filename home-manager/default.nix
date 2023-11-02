@@ -16,7 +16,7 @@
     enable = true;
     enableAutosuggestions = true;
     initExtra = "source $HOME/.config/zsh/zsh_config";
-    dotDir = ".config/zsh";
+    dotDir = "~/.config/zsh";
     envExtra = "skip_global_compinit=1";
   };
 

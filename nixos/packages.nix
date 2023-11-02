@@ -8,6 +8,8 @@
   xclip
 
   rofi
+  betterdiscordctl
+  telegram-desktop
 
   jellyfin
   jellyseerr

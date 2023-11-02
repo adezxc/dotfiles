@@ -17,7 +17,7 @@
   services.tailscale.enable = true;
 
   programs.zsh.enable = true;
-  fonts.packages = with pkgs; [
+  fonts.fonts = with pkgs; [
     nerdfonts
       fira-code
       fira-code-symbols

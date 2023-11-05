@@ -25,7 +25,6 @@
   go
   go-tools
   zig
-  jupyter
 
   # University
   weka

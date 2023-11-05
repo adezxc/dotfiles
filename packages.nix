@@ -13,9 +13,8 @@
   unzip
   lf
 
-  # Social
-
   # Other
+  discord
   spotify
   obsidian
   tailscale
@@ -26,6 +25,7 @@
   go
   go-tools
   zig
+  jupyter
 
   # University
   weka

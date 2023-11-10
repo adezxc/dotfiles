@@ -1,24 +1,26 @@
 {pkgs, ...}: with pkgs; [
-  steam
-  pavucontrol
-  subversion
-  winetricks
   firefox
+  steam
+
+  pavucontrol
+  winetricks
   xfce.thunar
   xclip
-
   rofi
+
+  discord
   betterdiscordctl
   telegram-desktop
 
+  # home server
   jellyfin
   jellyseerr
   jackett
   sonarr
   radarr
 
-  grim
-  slurp
-  wl-clipboard
-  discord
+  # development
+  alire
+  gnat
+  gprbuild
 ]

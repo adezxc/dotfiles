@@ -10,7 +10,6 @@
 # You can import other NixOS modules here
   imports = [
     ../default.nix
-      ./hardware-configuration.nix
       ./sound.nix
       ./home-server.nix
   ];

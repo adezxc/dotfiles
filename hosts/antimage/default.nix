@@ -11,6 +11,8 @@
   imports = [
   ./hardware-configuration.nix
   ../sound.nix
+  ../default.nix
+
   ];
 
   nixpkgs = {

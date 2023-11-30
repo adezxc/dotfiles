@@ -12,8 +12,6 @@
     allowUnfree = true;
   };
 
-  environment.systemPackages = (import ./packages.nix) pkgs;
-
   services.tailscale.enable = true;
 
   programs.zsh.enable = true;

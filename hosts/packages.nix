@@ -40,6 +40,8 @@
   obsidian
   tailscale
   anki-bin
+  libreoffice
+
   # University
   weka
 

@@ -54,7 +54,7 @@
 
 # TODO: Set your hostname
   networking.hostName = "antimage";
-  networking.networkmanager.enable = true;
+  networking.wireless.userControlled.enable = true;
 
 # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader = {
@@ -97,6 +97,14 @@ services.xserver = {
   windowManager.i3.enable = true;
 };
 
+networking.wireless.networks.eduroam = {
+   auth = ''
+     key_mgmt=WPA-EAP
+     eap=PWD
+     identity="adam.jasinski@mif.stud.vu.lt"
+     password="@EDUROAM_PASSWORD"
+   '';
+ };
 
 time.timeZone = "Europe/Vilnius";
 

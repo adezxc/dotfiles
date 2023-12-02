@@ -15,11 +15,12 @@
   services.tailscale.enable = true;
 
   programs.zsh.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     nerdfonts
       fira-code
       fira-code-symbols
   ];
+  environment.systemPackages = (import ./packages.nix) pkgs;
   services.xserver = {
     enable = true;
     layout = "pl,lt,ua";
@@ -30,7 +31,7 @@
         enable = true;
         greeter.enable = true;
         autoLogin = {
-          enable=  true;
+          enable = false;
           user = "adam";
         };
       };

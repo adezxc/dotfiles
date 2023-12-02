@@ -8,6 +8,8 @@
   xfce.thunar
   xclip
   rofi
+  gxkb
+  flameshot
 
   neovim
   zoxide

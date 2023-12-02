@@ -12,7 +12,6 @@
   ./hardware-configuration.nix
   ../sound.nix
   ../default.nix
-  ./packages.nix
   ];
 
   nixpkgs = {
@@ -85,7 +84,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  environment.systemPackages = (import ../packages.nix) pkgs;
+  environment.systemPackages = (import ./packages.nix) pkgs;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true;

@@ -11,7 +11,9 @@
       terminal = "alacritty";
       startup = [
         { command = "discord"; }
+        { command = "gxkb"; }
         { command = "spotify"; }
+        { command = "flameshot"; }
       ];
       gaps = {
         bottom = 5;
@@ -102,8 +104,7 @@
 
         "${mod}+r" = "mode resize";
 
-        "${mod}+n" = "exec ${pkgs.mako}/bin/makoctl dismiss";
-        "${mod}+Shift+n" = "exec ${pkgs.mako}/bin/makoctl dismiss -a";
+        "${mod}+Shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui";
 
         "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86AudioRaiseVolume" =
@@ -136,9 +137,6 @@
           {
             block = "memory";
           }
-        	{
-        	  block = "amd_gpu";
-        	}
           {
             block = "cpu";
         	  format = " $icon $barchart $utilization ";
@@ -157,11 +155,11 @@
         	    units = "metric";
         	  };
         	}
-        	{
-        	  block = "keyboard_layout";
-        	  driver = "sway";
-        	  interval = 0.5;
-        	}
+          {
+            block = "battery";
+            interval = 60;
+            warning = 20.0;
+          }
           {
             block = "time";
             format = " $timestamp.datetime(f:'%a %d/%m %R') ";

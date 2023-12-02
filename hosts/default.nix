@@ -20,5 +20,22 @@
       fira-code
       fira-code-symbols
   ];
-                            }
+  services.xserver = {
+    enable = true;
+    layout = "pl,lt,ua";
+    xkbVariant = ",,phonetic";
+    xkbOptions = "grp:alt_shift_toggle";
+    displayManager = {
+      lightdm = {
+        enable = true;
+        greeter.enable = true;
+        autoLogin = {
+          enable=  true;
+          user = "adam";
+        };
+      };
+    };
+    windowManager.i3.enable = true;
+  };
+}
 

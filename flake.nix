@@ -8,19 +8,31 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+    agenix = {
+      url = "github:ryantm/agenix";
+    };
 	};
 
-	outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }: let
+	outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, agenix}: let
 		inherit (self) outputs;
 	in {
 		nixosConfigurations = {
 			alchemist = nixpkgs.lib.nixosSystem {
 				specialArgs = {inherit inputs outputs;};
-				modules = [./nixos/configuration.nix /etc/nixos/hardware-configuration.nix];
+				modules = [./hosts/alchemist/default.nix
+        agenix.nixosModules.default
+        {
+          environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+        }];
 			};
 			antimage = nixpkgs.lib.nixosSystem {
 				specialArgs = {inherit inputs outputs;};
-				modules = [./hosts/antimage/default.nix];
+				modules = [./hosts/antimage/default.nix
+        agenix.nixosModules.default
+        {
+          environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+        }];
 			};
 		};
 

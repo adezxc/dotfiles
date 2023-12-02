@@ -53,16 +53,38 @@
   };
 
 # TODO: Set your hostname
+  age.secrets.wireless = {
+    file = ../../secrets/wireless.age;
+  }; 
   networking.hostName = "antimage";
+  networking.wireless.enable = true;
   networking.wireless.userControlled.enable = true;
+  networking.wireless.environmentFile = config.age.secrets.wireless.path;
+  networking.wireless.networks = {
+    home.auth = ''
+      ssid="@HOME_WIFI_SSID@"
+      scan_ssid=1
+      key_mgmt=WPA-PSK
+      psk="@HOME_WIFI_PASSWORD@"
+      '';
+      eduroam.auth = ''
+      key_mgmt=WPA-EAP
+      eap=MSCHAPV2
+      identity="@UNIVERSITY_EMAIL@"
+      password="@UNIVERSITY_PASSWORD@"
+      '';
+  };
 
 # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-
   environment.systemPackages = (import ../packages.nix) pkgs;
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
 # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users.adam = {
@@ -82,29 +104,16 @@ programs.gnupg.agent = {
 };
 
 services.xserver = {
-  enable = true;
-  layout = "us";
   displayManager = {
-    lightdm = {
-      enable = true;
-      greeter.enable = true;
-      autoLogin = {
-        enable=  true;
-        user = "adam";
-      };
-    };
+    sessionCommands = ''
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
+         *dpi: 120
+          Xft.dpi: 120
+          ''}
+    '';
   };
-  windowManager.i3.enable = true;
 };
 
-networking.wireless.networks.eduroam = {
-   auth = ''
-     key_mgmt=WPA-EAP
-     eap=PWD
-     identity="adam.jasinski@mif.stud.vu.lt"
-     password="@EDUROAM_PASSWORD"
-   '';
- };
 
 time.timeZone = "Europe/Vilnius";
 

@@ -12,6 +12,7 @@
   neovim
   zoxide
   starship
+  subversion
   bat
   ripgrep
   jq
@@ -28,7 +29,6 @@
   # development
   alire
   gnat
-  gprbuild
   python3
   go
   go-tools
@@ -41,6 +41,7 @@
   tailscale
   anki-bin
   libreoffice
+  thunderbird
 
   # University
   weka

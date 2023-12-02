@@ -12,7 +12,7 @@
   ./hardware-configuration.nix
   ../sound.nix
   ../default.nix
-
+  ./packages.nix
   ];
 
   nixpkgs = {
@@ -72,6 +72,11 @@
       eap=MSCHAPV2
       identity="@UNIVERSITY_EMAIL@"
       password="@UNIVERSITY_PASSWORD@"
+      '';
+      phone.auth = ''
+      ssid="@PHONE_HOTSPOT_SSID@"
+      key_mgmt=WPA-PSK
+      password="@PHONE_HOTSPOT_PASSWORD@"
       '';
   };
 

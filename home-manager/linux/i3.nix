@@ -110,6 +110,10 @@
           "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" =
           "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86MonBrightnessUp" =
+          "exec ${pkgs.brightnessctl}/bin/brightnessctl s 10%+";
+        "XF86MonBrightnessDown" =
+          "exec ${pkgs.brightnessctl}/bin/brightnessctl s 10%-";
       };      
       assigns = {
         "2" = [{ class = "Discord|^Spotify$"; }];

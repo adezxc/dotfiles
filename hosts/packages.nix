@@ -27,6 +27,7 @@
   discord
   betterdiscordctl
   telegram-desktop
+  okular
 
   # development
   alire
@@ -35,6 +36,7 @@
   go
   go-tools
   zig
+  gnumake
 
   # Other
   discord

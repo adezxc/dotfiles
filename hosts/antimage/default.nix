@@ -56,28 +56,7 @@
     file = ../../secrets/wireless.age;
   }; 
   networking.hostName = "antimage";
-  networking.wireless.enable = true;
-  networking.wireless.userControlled.enable = true;
-  networking.wireless.environmentFile = config.age.secrets.wireless.path;
-  networking.wireless.networks = {
-    home.auth = ''
-      ssid="@HOME_WIFI_SSID@"
-      scan_ssid=1
-      key_mgmt=WPA-PSK
-      psk="@HOME_WIFI_PASSWORD@"
-      '';
-      eduroam.auth = ''
-      key_mgmt=WPA-EAP
-      eap=MSCHAPV2
-      identity="@UNIVERSITY_EMAIL@"
-      password="@UNIVERSITY_PASSWORD@"
-      '';
-      phone.auth = ''
-      ssid="@PHONE_HOTSPOT_SSID@"
-      key_mgmt=WPA-PSK
-      password="@PHONE_HOTSPOT_PASSWORD@"
-      '';
-  };
+  networking.networkmanager.enable = true;
 
 # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader = {
@@ -108,6 +87,7 @@ programs.gnupg.agent = {
 };
 
 services.xserver = {
+  libinput.enable = true;
   displayManager = {
     sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''

@@ -40,7 +40,7 @@
 			"adam@alchemist" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
 					extraSpecialArgs = {inherit inputs outputs;};
-				modules = [./home-manager/linux.nix ./home-manager/default.nix];
+				modules = [./home-manager/linux.nix ./home-manager/default.nix ./hosts/alchemist/home-manager.nix];
 			};
 			"adam@antimage" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance

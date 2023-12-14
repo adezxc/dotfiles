@@ -10,6 +10,7 @@
   rofi
   gxkb
   flameshot
+  htop-vim
 
   neovim
   zoxide
@@ -24,10 +25,6 @@
   unzip
   lf
 
-  discord
-  betterdiscordctl
-  telegram-desktop
-  okular
 
   # development
   alire
@@ -40,10 +37,12 @@
 
   # Other
   discord
+  betterdiscordctl
+  telegram-desktop
+  okular
   spotify
   obsidian
   tailscale
-  anki-bin
   libreoffice
   thunderbird
 

@@ -5,6 +5,7 @@ PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 dotfiles=$HOME/repos/dotfiles
 alias tokens="cd $dotfiles && git-crypt unlock && source ./secrets/work/TOKENS.env && source ./secrets/work/jira"

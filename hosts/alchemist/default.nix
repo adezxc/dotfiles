@@ -71,8 +71,6 @@ time.timeZone = "Europe/Vilnius";
 
 i18n.defaultLocale = "en_US.UTF-8";
 
-services.tailscale.enable = true;
-
 hardware.opengl = {
   enable = true;
   driSupport = true;

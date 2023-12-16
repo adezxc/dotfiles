@@ -15,7 +15,7 @@
     ];
   };
 
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = true;

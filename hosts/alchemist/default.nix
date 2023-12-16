@@ -83,7 +83,6 @@ services.openssh = {
   enable = true;
   settings = {
     PermitRootLogin = "no";
-    PasswordAuthentication = false;
   };    
 };
 
@@ -102,9 +101,9 @@ services.xserver = {
       };
     };
   };
+  windowManager.i3.enable = true;
 };
 
-windowManager.i3.enable = true;
 
 # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 system.stateVersion = "23.05";

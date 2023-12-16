@@ -11,7 +11,6 @@
       terminal = "alacritty";
       startup = [
         { command = "discord"; }
-        { command = "gxkb"; }
         { command = "spotify"; }
         { command = "flameshot"; }
       ];

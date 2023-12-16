@@ -12,7 +12,7 @@
   programs.git = {
     enable = true;
     userName = "Adam Jasinski";
-    userEmail = "adam@jasinski.lt"
+    userEmail = "adam@jasinski.lt";
       aliases = {
         s = "status";
         csm = "commit --signoff -m";
@@ -32,6 +32,8 @@
   programs.alacritty = {
     enable = true;
   };
+
+  programs.direnv.enable = true;
 
   programs.starship = {
     enable = true;

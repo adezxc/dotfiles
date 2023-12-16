@@ -2,13 +2,13 @@
   alacritty
   firefox
   steam
+  steam-run
 
   pavucontrol
   winetricks
   xfce.thunar
   xclip
   rofi
-  gxkb
   flameshot
   htop-vim
 
@@ -24,11 +24,10 @@
   wget
   unzip
   lf
+  direnv
 
 
   # development
-  alire
-  gnat
   python3
   go
   go-tools

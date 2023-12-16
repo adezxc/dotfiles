@@ -40,12 +40,12 @@
 			"adam@alchemist" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
 					extraSpecialArgs = {inherit inputs outputs;};
-				modules = [./home-manager/linux.nix ./home-manager/default.nix ./hosts/alchemist/home-manager.nix];
+				modules = [./home-manager/default.nix ./home-manager/linux/i3.nix ./hosts/alchemist/home-manager.nix];
 			};
 			"adam@antimage" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
 					extraSpecialArgs = {inherit inputs outputs;};
-				modules = [./home-manager/linux.nix ./home-manager/default.nix];
+				modules = [./home-manager/default.nix ./hosts/antimage/home-manager.nix];
 			};
 		};
 	};

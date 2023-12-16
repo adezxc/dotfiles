@@ -87,8 +87,10 @@ programs.gnupg.agent = {
 };
 
 services.xserver = {
+  enable = true;
   libinput.enable = true;
   displayManager = {
+    gdm.enable = true;
     sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
          *dpi: 120
@@ -96,8 +98,26 @@ services.xserver = {
           ''}
     '';
   };
+  desktopManager.gnome.enable = true;
 };
 
+environment.gnome.excludePackages = (with pkgs; [
+  gnome-photos
+  gnome-tour
+]) ++ (with pkgs.gnome; [
+  gnome-music
+  gnome-terminal
+  gedit # text editor
+  epiphany # web browser
+  geary # email reader
+  evince # document viewer
+  gnome-characters
+  totem # video player
+  tali # poker game
+  iagno # go game
+  hitori # sudoku game
+  atomix # puzzle game
+]);
 
 time.timeZone = "Europe/Vilnius";
 
@@ -106,21 +126,13 @@ i18n.defaultLocale = "en_US.UTF-8";
 
 services.tailscale.enable = true;
 
-hardware.opengl = {
-  enable = true;
-  driSupport = true;
-  driSupport32Bit = true;
-};
-
-# This setups a SSH server. Very important if you're setting up a headless system.
-# Feel free to remove if you don't need it.
-services.openssh = {
-  enable = true;
-# Forbid root login through SSH.
-  settings = {
-    PermitRootLogin = "no";
-    PasswordAuthentication = false;
-  };    # Use keys only. Remove if you want to SSH using password (not recommended)
+hardware = {
+  pulseaudio.enable = false;
+  opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 };
 
 # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

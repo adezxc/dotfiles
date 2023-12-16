@@ -85,9 +85,26 @@ services.openssh = {
     PermitRootLogin = "no";
     PasswordAuthentication = false;
   };    
+};
+
+services.xserver = {
+  enable = true;
+  layout = "pl,lt,ua";
+  xkbVariant = ",,phonetic";
+  xkbOptions = "grp:alt_shift_toggle";
+  displayManager = {
+    lightdm = {
+      enable = true;
+      greeter.enable = true;
+      autoLogin = {
+        enable = false;
+        user = "adam";
+      };
+    };
   };
+};
 
-
+windowManager.i3.enable = true;
 
 # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 system.stateVersion = "23.05";

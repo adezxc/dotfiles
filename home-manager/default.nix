@@ -1,10 +1,19 @@
 { config, pkgs, lib, ... }: {
+  programs.home-manager.enable = true;
   home.stateVersion = "23.05";
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+  };
 
   programs.git = {
     enable = true;
     userName = "Adam Jasinski";
-    aliases = {
+    userEmail = "adam@jasinski.lt"
+      aliases = {
         s = "status";
         csm = "commit --signoff -m";
         root = "rev-parse --show-toplevel";
@@ -30,9 +39,18 @@
     settings = {
       add_newline = true;
       format = ''
-      $username$directory$git_branch$git_status$time$status
-      $character
-      '';
+        $username$directory$git_branch$git_status$time$status
+        $character
+        '';
     };
+  };
+
+
+# Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
+  home = {
+    username = "adam";
+    homeDirectory = "/home/adam";
   };
 }

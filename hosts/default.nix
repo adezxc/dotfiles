@@ -15,11 +15,16 @@
     ];
   };
 
-  services.tailscale.enable = false;
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = true;
-    settings.KbdInteractiveAuthentication = true;
+  services = {
+    resolved = {
+      enable = true;
+    };
+    tailscale.enable = true;
+    openssh = {
+      enable = true;
+      settings.PasswordAuthentication = true;
+      settings.KbdInteractiveAuthentication = true;
+    };
   };
 
   programs.zsh.enable = true;

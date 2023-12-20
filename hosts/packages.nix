@@ -41,7 +41,7 @@
   okular
   spotify
   obsidian
-  # tailscale
+  tailscale
   libreoffice
   thunderbird
 

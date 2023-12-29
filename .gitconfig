@@ -1,0 +1,10 @@
+[user]
+	email = adam@jasinski.lt 
+	name = adezxc
+[merge]
+	conflictStyle = diff3
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    s    = status
+[init]
+	defaultBranch = main

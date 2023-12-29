@@ -1,0 +1,7 @@
+i3|symlink|.config
+i3status-rust|symlink|.config
+alacritty|symlink|.config
+starship.toml|symlink|.config
+nvim|symlink|.config
+.zshrc|symlink|
+.gitconfig|symlink|

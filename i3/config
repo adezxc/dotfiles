@@ -3,7 +3,10 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+exec --no-startup-id feh --bg-scale /home/adam/Pictures/anime.png
 
+gaps inner 10
+gaps outer 10
 font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -13,7 +16,7 @@ font pango:monospace 8
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-exec_always "setxkbmap -model pc104 -layout pl,lt,ua -variant ,,phonetic -option grp:alt_shift_toggle"
+exec_always "setxkbmap -model pc104 -layout pl,lt,ua -variant ,us,phonetic -option grp:ctrls_toggle"
 exec_always "xrandr --output DisplayPort-0 --primary --rate 165.08 --mode 2560x1440 --pos 0x0 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output DisplayPort-2 --off --output HDMI-A-0 --off"
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -173,7 +176,14 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+c exec flameshot gui
 
 bar {
         status_command i3status
 }
+
+exec --no-startup-id i3-msg 'workspace 2; spotify'
+exec --no-startup-id i3-msg 'workspace 2; 64gram'
+exec --no-startup-id i3-msg 'workspace 2; discord'
+exec --no-startup-id i3-msg 'workspace 2; thunderbird'
+exec_always --no-startup-id picom -b

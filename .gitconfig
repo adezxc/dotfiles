@@ -7,4 +7,6 @@
     tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
     s    = status
 [init]
-	defaultBranch = main
+	defaultBranch = master
+[url "git@github.com:"]
+	insteadOf = https://github.com/

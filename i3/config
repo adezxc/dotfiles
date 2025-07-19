@@ -17,7 +17,7 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 exec_always "setxkbmap -model pc104 -layout pl,lt,ua -variant ,us,phonetic -option grp:ctrls_toggle"
-exec_always "xrandr --output DisplayPort-0 --primary --rate 165.08 --mode 2560x1440 --pos 0x0 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output DisplayPort-2 --off --output HDMI-A-0 --off"
+exec_always "xrandr --output DisplayPort-0 --primary --mode 2560x1440 --rate 165.08 --pos 0x560 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate left --output DisplayPort-2 --off --output HDMI-A-0 --off"
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -59,10 +59,10 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -81,9 +81,6 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -182,8 +179,4 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id i3-msg 'workspace 2; spotify'
-exec --no-startup-id i3-msg 'workspace 2; 64gram'
-exec --no-startup-id i3-msg 'workspace 2; discord'
-exec --no-startup-id i3-msg 'workspace 2; thunderbird'
 exec_always --no-startup-id picom -b

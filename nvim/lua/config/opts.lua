@@ -8,5 +8,4 @@ opt.smartindent = true
 opt.shiftwidth = 4
 opt.expandtab = true
 vim.diagnostic.config({ virtual_text = true })
-vim.diagnostic.config({ virtual_lines = true })
 opt.undofile = true

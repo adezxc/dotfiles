@@ -1,0 +1,20 @@
+[[profile]]
+name = "home"
+
+[[profile.output]]
+enable = true
+search = ["m=DELL S2721DGF", "s=77SGR83", "v=Dell Inc."]
+mode = "2560x1440@165.08Hz"
+position = "120,557"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=DELL U2722DE", "s=BH169H3", "v=Dell Inc."]
+mode = "2560x1440@59.951Hz"
+position = "2680,0"
+scale = 1.0
+transform = "90"
+adaptive_sync = false

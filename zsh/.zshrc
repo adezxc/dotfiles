@@ -1,43 +1,49 @@
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory
+ZSH_THEME="robbyrussell"
 
-PATH="$HOME/go/bin:$PATH"
-PATH="$HOME/bin:$PATH"
-
-eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
-eval "$(atuin init zsh --disable-up-arrow)"
-
-source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-SSH_ENV="$HOME/.ssh/agent-environment"
-
-function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-}
-
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-alias idea=/opt/intellij-idea-ultimate-edition/bin/idea.sh
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/adam/.zshrc'
 
+autoload -Uz compinit 
+compinit
+# End of lines added by compinstall
 
-[[ ! -r '/home/adam/.opam/opam-init/init.zsh' ]] || source '/home/adam/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+export PATH="/home/adam/.rbenv/bin:$PATH"
+export PATH="/home/adam/.getada/bin:$PATH"
+export PATH="/home/adam/.local/bin:$PATH"
+export PATH="/home/adam/.cargo/bin:$PATH"
+eval "$(rbenv init - --no-rehash zsh)"
+export PATH="/home/adam/bin:$PATH"
+
+export KITCHEN_DRIVER=digitalocean
+
+FZF_ALT_C_COMMAND= source <(fzf --zsh)
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(zoxide init zsh)"
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+alias "unlock-vinted"="ssh-add -t 16h ~/.ssh/work.id_rsa"
+alias "k"="kubectl"
+alias "dcup"="docker compose up"
+alias "dc"="docker compose"
+alias "dcdown"="docker compose down"
+
+knife-a() { knife $@ --profile ams1 }
+knife-b() { knife $@ --profile bru1 }
+knife-d() { knife $@ --profile dus1 }
+knife-w() { knife $@ --profile fra52 }
+
+export LANG=en_US.UTF-8
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+

@@ -1,14 +1,43 @@
+[includeIf "gitdir:~/work/**"]
+  path = ~/.config/git/work
+[includeIf "gitdir:~/chef"]
+  path = ~/.config/git/work
 [user]
-	email = adam@jasinski.lt 
-	name = adezxc
-[merge]
-	conflictStyle = diff3
-[alias]
-    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    s    = status
-[init]
-	defaultBranch = master
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+	email = adam.jasinski@vinted.com
+	name = Adam Jasinski
+	signingkey = 2CF849FFB689451A
 [core]
-	autocrlf = input
+	pager = delta
+	attributesfile = /home/adam/.gitattributes
+[push]
+	autoSetupRemote = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[init]
+        defaultBranch = master
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+
+[alias]
+    out = "log @{u}.."
+    s = "status"
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+[commit]
+	gpgsign = true

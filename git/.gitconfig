@@ -9,6 +9,7 @@
 [core]
 	pager = delta
 	attributesfile = /home/adam/.gitattributes
+	excludesfile = /home/adam/.gitignore_global
 [push]
 	autoSetupRemote = true
 [url "ssh://git@github.com/"]
@@ -31,7 +32,7 @@
         autoSetupRemote = true
         followTags = true
 [fetch]
-        prune = true
+	prune = true
         pruneTags = true
         all = true
 

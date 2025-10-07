@@ -25,14 +25,12 @@ export KITCHEN_DRIVER=digitalocean
 FZF_ALT_C_COMMAND= source <(fzf --zsh)
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(zoxide init zsh)"
+eval "$(kubectl completion zsh)"
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias "unlock-vinted"="ssh-add -t 16h ~/.ssh/work.id_rsa"
 alias "k"="kubectl"
-alias "dcup"="docker compose up"
-alias "dc"="docker compose"
-alias "dcdown"="docker compose down"
 
 knife-a() { knife $@ --profile ams1 }
 knife-b() { knife $@ --profile bru1 }
@@ -47,3 +45,4 @@ else
   export EDITOR='nvim'
 fi
 
+alias today="date '+%Y-%m-%d'"
